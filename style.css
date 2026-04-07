@@ -759,24 +759,43 @@ a {
 }
 
 .sobre-img-placeholder {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  background: var(--black-card);
-  border: 2px solid var(--black-border);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.avatar-photo {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: 3px solid var(--black);
+  box-shadow: 0 0 0 2px var(--red-glow-soft), 0 8px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   position: relative;
+  z-index: 1;
+}
+
+.sobre-img-placeholder:hover .avatar-photo {
+  transform: scale(1.04);
+  box-shadow: 0 0 0 3px rgba(225, 6, 0, 0.4), 0 12px 48px rgba(0, 0, 0, 0.7);
 }
 
 .avatar-ring {
   position: absolute;
-  inset: -6px;
+  inset: -8px;
   border-radius: 50%;
   border: 2px solid var(--red);
   border-top-color: transparent;
-  animation: spin 4s linear infinite;
+  border-right-color: transparent;
+  animation: spin 5s linear infinite;
+  z-index: 2;
 }
 
 @keyframes spin {
