@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Criação de sites personalizados que convertem. Design profissional, performance rápida e foco em resultados para o seu negócio." />
+  <meta name="keywords"
+    content="criação de sites, desenvolvedor freelancer, sites personalizados, landing page, desenvolvimento web" />
+  <meta name="author" content="Dev Freelancer" />
+  <meta property="og:title" content="Dev Freelancer | Criação de Sites Personalizados" />
+  <meta property="og:description"
+    content="Sites que convertem. Design sob medida, performance e resultados reais para o seu negócio." />
+  <meta property="og:type" content="website" />
+  <title>Dev Freelancer | Criação de Sites Personalizados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Dev<span class="logo-red">/</span><span class="logo-bracket">&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#servicos" class="nav-link">Serviços</a></li>
+        <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+        <li><a href="#orcamento" class="nav-link nav-cta">Orçamento</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge fade-up">
+          <span class="badge-dot"></span>
+          Disponível para novos projetos
+        </div>
+        <h1 class="hero-title fade-up">
+          Criação de Sites<br />
+          <span class="title-highlight">Personalizados</span><br />
+          que Convertem
+        </h1>
+        <p class="hero-subtitle fade-up">
+          Design sob medida, performance de elite e foco total em resultados.<br />
+          Sem templates. Sem entregas genéricas. Só o que funciona de verdade.
+        </p>
+        <div class="hero-actions fade-up">
+          <a href="#orcamento" class="btn btn-primary" id="hero-cta">
+            <span>Solicitar Orçamento</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 12h14m-7-7 7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#portfolio" class="btn btn-ghost" id="hero-portfolio">Ver Portfólio</a>
+        </div>
+        <div class="hero-stats fade-up">
+          <div class="stat">
+            <span class="stat-number" data-target="30">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Projetos entregues</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
+            <span class="stat-label">Satisfação dos clientes</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Anos de experiência</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual fade-up">
+        <div class="mockup-wrapper">
+          <div class="mockup-glow"></div>
+          <div class="browser-mock">
+            <div class="browser-bar">
+              <div class="browser-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="browser-url">meusite.com.br</div>
+            </div>
+            <div class="browser-screen">
+              <div class="screen-hero-block">
+                <div class="screen-line long"></div>
+                <div class="screen-line medium"></div>
+                <div class="screen-btn-mock"></div>
+              </div>
+              <div class="screen-cards">
+                <div class="screen-card"></div>
+                <div class="screen-card"></div>
+                <div class="screen-card"></div>
+              </div>
+              <div class="screen-bar-chart">
+                <div class="bar" style="height:40%"></div>
+                <div class="bar" style="height:65%"></div>
+                <div class="bar" style="height:50%"></div>
+                <div class="bar" style="height:85%"></div>
+                <div class="bar" style="height:70%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-card card-1">
+            <span class="fc-icon">⚡</span>
+            <span class="fc-text">Performance 98/100</span>
+          </div>
+          <div class="floating-card card-2">
+            <span class="fc-icon">📱</span>
+            <span class="fc-text">100% Responsivo</span>
+          </div>
+          <div class="floating-card card-3">
+            <span class="fc-icon">🚀</span>
+            <span class="fc-text">Entrega rápida</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section class="sobre" id="sobre">
+    <div class="section-container">
+      <div class="sobre-grid">
+        <div class="sobre-visual">
+          <div class="sobre-img-wrapper">
+            <div class="sobre-img-placeholder">
+              <div class="avatar-ring"></div>
+              <div class="avatar-body">
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" fill="none" viewBox="0 0 24 24">
+                  <circle cx="12" cy="8" r="4" stroke="#E10600" stroke-width="1.5" />
+                  <path stroke="#E10600" stroke-linecap="round" stroke-width="1.5"
+                    d="M4 20c0-3.31 3.58-6 8-6s8 2.69 8 6" />
+                </svg>
+              </div>
+            </div>
+            <div class="sobre-badge-exp">
+              <span class="badge-num">5+</span>
+              <span class="badge-txt">anos de<br />experiência</span>
+            </div>
+          </div>
+          <div class="sobre-code-snippet">
+            <div class="code-header">
+              <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
+              <span class="code-title">dev.js</span>
+            </div>
+            <pre class="code-body"><code><span class="c-key">const</span> <span class="c-var">dev</span> = {
+  <span class="c-prop">foco</span>: <span class="c-str">"resultado"</span>,
+  <span class="c-prop">entrega</span>: <span class="c-str">"no prazo"</span>,
+  <span class="c-prop">qualidade</span>: <span class="c-str">"premium"</span>,
+  <span class="c-prop">suporte</span>: <span class="c-num">true</span>
+};</code></pre>
+          </div>
+        </div>
+        <div class="sobre-content">
+          <div class="section-tag">// sobre mim</div>
+          <h2 class="section-title">Transformo ideias em sites que geram resultado</h2>
+          <p class="sobre-text">
+            Sou desenvolvedor web freelancer especializado em criar experiências digitais que vão além do visual. Cada
+            projeto é pensado estrategicamente para <strong>converter visitantes em clientes</strong>.
+          </p>
+          <p class="sobre-text">
+            Não trabalho com templates prontos. Cada site que entrego é construído do zero, com atenção aos detalhes,
+            código limpo e foco total no objetivo do cliente.
+          </p>
+          <div class="sobre-skills">
+            <div class="skill-chip">HTML / CSS</div>
+            <div class="skill-chip">JavaScript</div>
+            <div class="skill-chip">React</div>
+            <div class="skill-chip">Node.js</div>
+            <div class="skill-chip">UI/UX Design</div>
+            <div class="skill-chip">SEO técnico</div>
+          </div>
+          <a href="#orcamento" class="btn btn-primary" id="sobre-cta">Vamos trabalhar juntos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section class="servicos" id="servicos">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-tag">// serviços</div>
+        <h2 class="section-title">O que posso construir para você</h2>
+        <p class="section-subtitle">Soluções sob medida para cada etapa do seu negócio digital</p>
+      </div>
+      <div class="servicos-grid">
+        <div class="servico-card" id="servico-institucional">
+          <div class="servico-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
+              <rect width="18" height="14" x="3" y="5" rx="2" stroke="#E10600" stroke-width="1.8" />
+              <path stroke="#E10600" stroke-linecap="round" stroke-width="1.8" d="M3 9h18M7 3v4m10-4v4" />
+            </svg>
+          </div>
+          <h3 class="servico-title">Sites Institucionais</h3>
+          <p class="servico-desc">Presença digital completa para sua empresa. Design profissional, páginas estruturadas
+            e conteúdo otimizado para SEO que coloca seu negócio no mapa.</p>
+          <ul class="servico-features">
+            <li>Design personalizado</li>
+            <li>SEO on-page</li>
+            <li>Formulários de contato</li>
+            <li>Integração com Google Analytics</li>
+          </ul>
+          <div class="servico-price">
+            <span class="price-label">Investimento</span>
+            <span class="price-value">Sob consulta</span>
+          </div>
+          <a href="#orcamento" class="btn btn-outline" id="cta-institucional">Solicitar proposta</a>
+        </div>
+
+        <div class="servico-card featured" id="servico-landing">
+          <div class="featured-badge">Mais popular</div>
+          <div class="servico-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
+              <path stroke="#E10600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" />
+            </svg>
+          </div>
+          <h3 class="servico-title">Landing Pages</h3>
+          <p class="servico-desc">Páginas de alta conversão criadas para transformar visitantes em leads e vendas. Cada
+            elemento estrategicamente posicionado para maximizar seus resultados.</p>
+          <ul class="servico-features">
+            <li>Estrutura CRO (conversão)</li>
+            <li>Carregamento ultrarrápido</li>
+            <li>A/B testing ready</li>
+            <li>Integração com ferramentas de marketing</li>
+          </ul>
+          <div class="servico-price">
+            <span class="price-label">Investimento</span>
+            <span class="price-value">Sob consulta</span>
+          </div>
+          <a href="#orcamento" class="btn btn-primary" id="cta-landing">Solicitar proposta</a>
+        </div>
+
+        <div class="servico-card" id="servico-sistemas">
+          <div class="servico-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
+              <path stroke="#E10600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />
+            </svg>
+          </div>
+          <h3 class="servico-title">Sistemas & Automações</h3>
+          <p class="servico-desc">Dashboards, painéis de gestão, integrações com APIs e automações que economizam tempo
+            e escalam seu negócio sem precisar aumentar equipe.</p>
+          <ul class="servico-features">
+            <li>Painéis administrativos</li>
+            <li>Integrações via API</li>
+            <li>Automações com Zapier/N8N</li>
+            <li>CRM e gestão de leads</li>
+          </ul>
+          <div class="servico-price">
+            <span class="price-label">Investimento</span>
+            <span class="price-value">Sob consulta</span>
+          </div>
+          <a href="#orcamento" class="btn btn-outline" id="cta-sistemas">Solicitar proposta</a>
+        </div>
+      </div>
+      <p class="servicos-note">* Os valores variam conforme complexidade, prazo e escopo de cada projeto. Solicite uma
+        proposta personalizada sem compromisso.</p>
+    </div>
+  </section>
+
+  <!-- ===== DIFERENCIAIS ===== -->
+  <section class="diferenciais" id="diferenciais">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-tag">// diferenciais</div>
+        <h2 class="section-title">Por que escolher meu trabalho?</h2>
+        <p class="section-subtitle">Não entrego apenas código. Entrego soluções que funcionam de verdade.</p>
+      </div>
+      <div class="diferenciais-grid">
+        <div class="diferencial-card" id="dif-design">
+          <div class="dif-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="#E10600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5Z" />
+            </svg>
+          </div>
+          <h3>Design 100% Personalizado</h3>
+          <p>Esqueça templates genéricos. Cada projeto é único, pensado para a identidade da sua marca e os objetivos do
+            seu negócio.</p>
+        </div>
+        <div class="diferencial-card" id="dif-mobile">
+          <div class="dif-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <rect width="12" height="18" x="6" y="3" rx="2" stroke="#E10600" stroke-width="1.8" />
+              <path stroke="#E10600" stroke-linecap="round" stroke-width="1.8" d="M12 18h.01" />
+            </svg>
+          </div>
+          <h3>Mobile-First</h3>
+          <p>Mais de 70% dos acessos vêm de celulares. Todo site é responsivo do zero, com experiência perfeita em
+            qualquer tamanho de tela.</p>
+        </div>
+        <div class="diferencial-card" id="dif-performance">
+          <div class="dif-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="#E10600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" />
+            </svg>
+          </div>
+          <h3>Performance de Elite</h3>
+          <p>Sites rápidos geram mais confiança, melhor SEO e mais conversões. Otimizo cada detalhe para pontuação
+            máxima no Google PageSpeed.</p>
+        </div>
+        <div class="diferencial-card" id="dif-integracao">
+          <div class="dif-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="#E10600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path stroke="#E10600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+          </div>
+          <h3>Integrações Completas</h3>
+          <p>WhatsApp, CRMs, gateways de pagamento, Google Analytics, Pixel do Facebook — tudo integrado e funcionando
+            desde o primeiro dia.</p>
+        </div>
+        <div class="diferencial-card" id="dif-seo">
+          <div class="dif-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" stroke="#E10600" stroke-width="1.8" />
+              <path stroke="#E10600" stroke-linecap="round" stroke-width="1.8" d="m21 21-4.35-4.35" />
+            </svg>
+          </div>
+          <h3>SEO Técnico</h3>
+          <p>Metadados, sitemap, Schema.org e boas práticas completas para que o Google encontre, entenda e rankeie o
+            seu site.</p>
+        </div>
+        <div class="diferencial-card" id="dif-suporte">
+          <div class="dif-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="#E10600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <h3>Suporte Pós-entrega</h3>
+          <p>Não sumiu após entregar. Ofereço suporte técnico e acompanhamento pós-lançamento para garantir que tudo
+            funcione perfeitamente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFÓLIO ===== -->
+  <section class="portfolio" id="portfolio">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-tag">// portfólio</div>
+        <h2 class="section-title">Projetos que falam por si</h2>
+        <p class="section-subtitle">Uma seleção dos trabalhos mais recentes</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card" id="proj-1">
+          <div class="portfolio-img"
+            style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+            <div class="portfolio-mock">
+              <div class="pm-header">
+                <div class="pm-dot r"></div>
+                <div class="pm-dot y"></div>
+                <div class="pm-dot g"></div>
+              </div>
+              <div class="pm-hero-block">
+                <div class="pm-line l1"></div>
+                <div class="pm-line l2"></div>
+                <div class="pm-btn-mock"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Landing Page</span>
+            <h3 class="portfolio-title">Academia Premium</h3>
+            <p class="portfolio-desc">Landing page de alta conversão para academia de fitness. ROI de 340% em 3 meses
+              após o lançamento.</p>
+            <div class="portfolio-tech">
+              <span>HTML</span><span>CSS</span><span>JS</span>
+            </div>
+          </div>
+          <div class="portfolio-overlay">
+            <a href="#orcamento" class="btn btn-primary btn-sm">Quero algo assim</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card" id="proj-2">
+          <div class="portfolio-img"
+            style="background: linear-gradient(135deg, #0d0d0d 0%, #1a0500 50%, #2d0f00 100%);">
+            <div class="portfolio-mock">
+              <div class="pm-header">
+                <div class="pm-dot r"></div>
+                <div class="pm-dot y"></div>
+                <div class="pm-dot g"></div>
+              </div>
+              <div class="pm-cards-row">
+                <div class="pm-card-mini"></div>
+                <div class="pm-card-mini"></div>
+                <div class="pm-card-mini"></div>
+              </div>
+              <div class="pm-chart">
+                <div class="pm-bar" style="height:40%"></div>
+                <div class="pm-bar" style="height:70%"></div>
+                <div class="pm-bar" style="height:55%"></div>
+                <div class="pm-bar" style="height:90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Sistema Web</span>
+            <h3 class="portfolio-title">Dashboard Financeiro</h3>
+            <p class="portfolio-desc">Painel de gestão financeira para empresa de contabilidade com relatórios em tempo
+              real.</p>
+            <div class="portfolio-tech">
+              <span>React</span><span>Node.js</span><span>API</span>
+            </div>
+          </div>
+          <div class="portfolio-overlay">
+            <a href="#orcamento" class="btn btn-primary btn-sm">Quero algo assim</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card" id="proj-3">
+          <div class="portfolio-img"
+            style="background: linear-gradient(135deg, #0a0a0a 0%, #0d2137 50%, #0a3d62 100%);">
+            <div class="portfolio-mock">
+              <div class="pm-header">
+                <div class="pm-dot r"></div>
+                <div class="pm-dot y"></div>
+                <div class="pm-dot g"></div>
+              </div>
+              <div class="pm-hero-block">
+                <div class="pm-line l1"></div>
+                <div class="pm-line l2"></div>
+              </div>
+              <div class="pm-grid-mock">
+                <div class="pm-img-block"></div>
+                <div class="pm-img-block"></div>
+                <div class="pm-img-block"></div>
+                <div class="pm-img-block"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Site Institucional</span>
+            <h3 class="portfolio-title">Escritório de Advocacia</h3>
+            <p class="portfolio-desc">Site completo com blog, áreas de atuação e sistema de agendamento de consultas
+              integrado.</p>
+            <div class="portfolio-tech">
+              <span>WordPress</span><span>SEO</span><span>Custom</span>
+            </div>
+          </div>
+          <div class="portfolio-overlay">
+            <a href="#orcamento" class="btn btn-primary btn-sm">Quero algo assim</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESSO ===== -->
+  <section class="processo" id="processo">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-tag">// como funciona</div>
+        <h2 class="section-title">Do briefing ao lançamento</h2>
+        <p class="section-subtitle">Um processo simples, transparente e sem surpresas</p>
+      </div>
+      <div class="processo-steps">
+        <div class="processo-step" id="step-1">
+          <div class="step-num">01</div>
+          <div class="step-connector"></div>
+          <div class="step-content">
+            <h3>Briefing &amp; Proposta</h3>
+            <p>Você me conta sobre o projeto, objetivos e necessidades. Envio uma proposta detalhada com escopo, prazo e
+              investimento sem compromisso.</p>
+          </div>
+        </div>
+        <div class="processo-step" id="step-2">
+          <div class="step-num">02</div>
+          <div class="step-connector"></div>
+          <div class="step-content">
+            <h3>Design &amp; Aprovação</h3>
+            <p>Apresento o protótipo visual para aprovação. Ajustes ilimitados até você estar 100% satisfeito com a
+              proposta visual.</p>
+          </div>
+        </div>
+        <div class="processo-step" id="step-3">
+          <div class="step-num">03</div>
+          <div class="step-connector"></div>
+          <div class="step-content">
+            <h3>Desenvolvimento</h3>
+            <p>Codifico o projeto com as melhores práticas, responsividade e otimizações de performance desde o primeiro
+              dia.</p>
+          </div>
+        </div>
+        <div class="processo-step" id="step-4">
+          <div class="step-num">04</div>
+          <div class="step-connector end"></div>
+          <div class="step-content">
+            <h3>Entrega &amp; Suporte</h3>
+            <p>Publicamos o site, configuro domínio e hospedagem, e fico disponível para suporte técnico pós-lançamento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ORÇAMENTO ===== -->
+  <section class="orcamento" id="orcamento">
+    <div class="orcamento-bg"></div>
+    <div class="section-container">
+      <div class="orcamento-inner">
+        <div class="section-tag">// orçamento</div>
+        <h2 class="section-title orcamento-title">Pronto para ter o site que seu negócio merece?</h2>
+        <p class="orcamento-subtitle">
+          Preencha o formulário abaixo ou entre em contato direto pelo WhatsApp.<br />
+          Respondo em até 24 horas com uma proposta personalizada.
+        </p>
+        <form class="orcamento-form" id="orcamento-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Seu nome</label>
+              <input type="text" id="nome" name="nome" placeholder="João Silva" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Seu e-mail</label>
+              <input type="email" id="email" name="email" placeholder="joao@empresa.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="whatsapp">WhatsApp</label>
+              <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" />
+            </div>
+            <div class="form-group">
+              <label for="tipo">Tipo de projeto</label>
+              <select id="tipo" name="tipo">
+                <option value="">Selecione...</option>
+                <option value="institucional">Site Institucional</option>
+                <option value="landing">Landing Page</option>
+                <option value="sistema">Sistema / Automação</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Conte-me sobre o projeto</label>
+            <textarea id="mensagem" name="mensagem" rows="4"
+              placeholder="Descreva brevemente o que você precisa, para quando e quais referências tem em mente..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="form-submit">
+            <span>Enviar Solicitação</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 12h14m-7-7 7 7-7 7" />
+            </svg>
+          </button>
+          <div class="form-success" id="form-success">
+            <span>✅ Mensagem enviada com sucesso! Retorno em até 24h.</span>
+          </div>
+        </form>
+        <div class="orcamento-alt">
+          <span>Prefere contato direto?</span>
+          <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20estou%20interessado%20nos%20seus%20servi%C3%A7os%2C%20podemos%20conversar%3F"
+            target="_blank" rel="noopener" class="btn btn-whatsapp" id="whatsapp-orcamento">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+            </svg>
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo">
+          <span class="logo-bracket">&lt;</span>Dev<span class="logo-red">/</span><span class="logo-bracket">&gt;</span>
+        </a>
+        <p>Criando experiências digitais que geram resultado.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#orcamento">Orçamento</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Dev Freelancer. Todos os direitos reservados.</span>
+        <span class="footer-made">Feito com ❤️ e muito ☕</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20estou%20interessado%20nos%20seus%20servi%C3%A7os%2C%20podemos%20conversar%3F"
+    target="_blank" rel="noopener" class="whatsapp-float" id="whatsapp-float" aria-label="Falar no WhatsApp">
+    <div class="wf-pulse"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path
+        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+    </svg>
+    <span class="wf-tooltip">Falar no WhatsApp</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
