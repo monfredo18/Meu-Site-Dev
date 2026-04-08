@@ -1824,3 +1824,604 @@ a {
     bottom: 20px;
   }
 }
+
+/* ============================================
+   NOTIFICATION SYSTEM
+   Variáveis específicas do componente herdadas
+   do Design System global (:root)
+   ============================================ */
+
+/* ----------------------------------------------------------
+   1. BOTÃO TRIGGER
+   Posicionado como fixed no canto superior direito.
+   Circular, com ícone de sino e badge de contagem.
+   ---------------------------------------------------------- */
+.notif-trigger {
+  /* Posicionamento fixo */
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 1100; /* Acima da navbar (z-index: 1000) */
+
+  /* Formato circular */
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--black-border);
+
+  /* Fundo e cor */
+  background: var(--black-card);
+  color: var(--white-muted);
+
+  /* Layout interno */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Interação */
+  cursor: pointer;
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+
+  /* Isolamento de posicionamento para o badge */
+  position: fixed;
+}
+
+/* Hover: leve escalonamento + brilho */
+.notif-trigger:hover {
+  transform: scale(1.1);
+  background: var(--black-hover);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Estado ativo (drawer aberto) */
+.notif-trigger[aria-expanded="true"] {
+  background: var(--black-border);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(225, 6, 0, 0.2);
+}
+
+/* Focus visible: acessibilidade via teclado */
+.notif-trigger:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+
+/* Ícone do sino em transição suave */
+.notif-bell-icon {
+  transition: transform var(--transition);
+}
+
+/* Animação do sino quando há novas notificações */
+.notif-trigger.has-unread .notif-bell-icon {
+  animation: bell-ring 0.6s ease-in-out;
+}
+
+@keyframes bell-ring {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(18deg); }
+  30%  { transform: rotate(-16deg); }
+  45%  { transform: rotate(12deg); }
+  60%  { transform: rotate(-10deg); }
+  75%  { transform: rotate(6deg); }
+  90%  { transform: rotate(-4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ----------------------------------------------------------
+   2. BADGE (INDICADOR DE NÃO LIDAS)
+   Bolinha vermelha com número no canto superior direito
+   do botão. Pulsante quando há itens novos.
+   ---------------------------------------------------------- */
+.notif-badge {
+  /* Posicionamento relativo ao botão trigger */
+  position: absolute;
+  top: -4px;
+  right: -4px;
+
+  /* Tamanho e forma */
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 99px;
+
+  /* Cor de destaque */
+  background: var(--red);
+  color: var(--white);
+
+  /* Tipografia */
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: var(--font-main);
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0;
+
+  /* Borda para destacar sobre o botão */
+  border: 2px solid var(--black);
+
+  /* Transições de exibição/ocultação */
+  transition:
+    transform var(--transition),
+    opacity var(--transition),
+    background var(--transition);
+
+  /* Estado inicial visível */
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Badge oculto: sem notificações não lidas */
+.notif-badge.hidden {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Microinteração pulsante para novas notificações */
+.notif-badge.pulse {
+  animation: badge-pulse 1.8s ease-in-out 3;
+}
+
+@keyframes badge-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.7); }
+  50%  { box-shadow: 0 0 0 7px rgba(225, 6, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(225, 6, 0, 0); }
+}
+
+/* ----------------------------------------------------------
+   3. OVERLAY
+   Fundo escuro semi-transparente atrás do drawer.
+   Fade-in/out via classe .active.
+   ---------------------------------------------------------- */
+.notif-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1150;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  /* Ocultado por padrão */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notif-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ----------------------------------------------------------
+   4. DRAWER (PAINEL LATERAL)
+   Desliza da direita com transform: translateX.
+   Empilhado acima do overlay.
+   ---------------------------------------------------------- */
+.notif-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1200;
+
+  /* Largura do painel */
+  width: 380px;
+  max-width: 100vw;
+
+  /* Fundo e borda */
+  background: var(--black-card);
+  border-left: 1px solid var(--black-border);
+  box-shadow: -8px 0 48px rgba(0, 0, 0, 0.7);
+
+  /* Layout interno em coluna */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* Estado inicial: oculto à direita */
+  transform: translateX(110%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Drawer aberto: desliza para dentro */
+.notif-drawer.open {
+  transform: translateX(0);
+}
+
+/* ----------------------------------------------------------
+   5. CABEÇALHO DO DRAWER
+   ---------------------------------------------------------- */
+.notif-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--black-border);
+
+  /* Fundo levemente diferente para separar visualmente */
+  background: var(--black-soft);
+  flex-shrink: 0;
+}
+
+.notif-drawer-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notif-drawer-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* Contador de não lidas próximo ao título */
+.notif-count-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--white-muted);
+  background: var(--black-border);
+  padding: 2px 8px;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+  transition: opacity var(--transition);
+}
+
+/* Botão de fechar (X) */
+.notif-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--white-muted);
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition);
+  flex-shrink: 0;
+}
+
+.notif-close-btn:hover {
+  background: var(--black-hover);
+  color: var(--white);
+}
+
+.notif-close-btn:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------
+   6. LISTA DE NOTIFICAÇÕES (ÁREA COM SCROLL)
+   overflow-y: auto com scrollbar estilizada
+   ---------------------------------------------------------- */
+.notif-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Scrollbar interna do painel */
+.notif-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.notif-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.notif-list::-webkit-scrollbar-thumb {
+  background: var(--black-border);
+  border-radius: 99px;
+}
+
+.notif-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(225, 6, 0, 0.5);
+}
+
+/* Estado vazio da lista */
+.notif-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 48px 20px;
+  color: var(--white-muted);
+  text-align: center;
+}
+
+.notif-empty-icon {
+  opacity: 0.25;
+  color: var(--white);
+}
+
+.notif-empty-text {
+  font-size: 0.875rem;
+  color: var(--white-muted);
+}
+
+/* ----------------------------------------------------------
+   7. CARDS DE EVENTOS / NOTIFICAÇÕES
+   Cada card representa um item do JSON.
+   ---------------------------------------------------------- */
+.notif-card {
+  /* Layout interno */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  /* Espaçamento e borda */
+  padding: 14px 14px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--black-border);
+  background: var(--black-soft);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+
+  /* Item de lista semântico */
+  list-style: none;
+
+  /* Transição de hover */
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+
+  /* Cursor interativo */
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Linha de acento vermelha à esquerda para itens não lidos */
+.notif-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--red);
+  border-radius: 0 2px 2px 0;
+  transition: opacity var(--transition);
+}
+
+/* Hover no card */
+.notif-card:hover {
+  background: var(--black-hover);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Card já lido: tom mais suave */
+.notif-card.read {
+  opacity: 0.6;
+}
+
+.notif-card.read::before {
+  opacity: 0;
+}
+
+.notif-card.read:hover {
+  opacity: 0.85;
+}
+
+/* ----------------------------------------------------------
+   8. ELEMENTOS INTERNOS DO CARD
+   ---------------------------------------------------------- */
+
+/* Linha superior: badge de status + data */
+.notif-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Título do card */
+.notif-card-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.notif-card.read .notif-card-title {
+  color: var(--white-muted);
+}
+
+/* Descrição do card */
+.notif-card-desc {
+  font-size: 0.8rem;
+  color: var(--white-muted);
+  line-height: 1.55;
+  margin: 0;
+
+  /* Limitar a 2 linhas com ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2; /* propriedade padrão para compatibilidade futura */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Data formatada */
+.notif-card-date {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------
+   9. BADGES DE STATUS (Novo, Atualizado, Importante)
+   ---------------------------------------------------------- */
+.notif-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Status: Novo */
+.notif-status-badge.novidade {
+  background: rgba(225, 6, 0, 0.15);
+  color: #ff6b6b;
+  border: 1px solid rgba(225, 6, 0, 0.3);
+}
+
+/* Indicador pulsante para "novo" */
+.notif-status-badge.novidade::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: badge-dot-pulse 1.5s infinite;
+}
+
+@keyframes badge-dot-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Status: Atualizado */
+.notif-status-badge.evento {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+/* Status: Importante */
+.notif-status-badge.importante {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+/* ----------------------------------------------------------
+   10. RODAPÉ DO DRAWER
+   ---------------------------------------------------------- */
+.notif-drawer-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--black-border);
+  background: var(--black-soft);
+  flex-shrink: 0;
+}
+
+.notif-mark-all-btn {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--black-border);
+  background: transparent;
+  color: var(--white-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.notif-mark-all-btn:hover {
+  background: var(--black-hover);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.notif-mark-all-btn:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* Desabilitado quando todas estão lidas */
+.notif-mark-all-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ----------------------------------------------------------
+   11. ANIMAÇÃO DE ENTRADA DOS CARDS (stagger)
+   ---------------------------------------------------------- */
+@keyframes card-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.notif-card {
+  animation: card-slide-in 0.3s ease both;
+}
+
+/* ----------------------------------------------------------
+   12. RESPONSIVIDADE
+   Mobile-first: em telas menores o drawer ocupa 100%
+   ---------------------------------------------------------- */
+@media (max-width: 480px) {
+  .notif-trigger {
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .notif-drawer {
+    width: 100vw;
+    border-left: none;
+    border-top: 1px solid var(--black-border);
+  }
+}
+
+/* ----------------------------------------------------------
+   13. REDUÇÃO DE MOVIMENTO (acessibilidade)
+   Desativa animações para usuários que preferem
+   ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .notif-trigger,
+  .notif-badge,
+  .notif-overlay,
+  .notif-drawer,
+  .notif-card {
+    transition: none;
+    animation: none;
+  }
+
+  .notif-status-badge.novo::before {
+    animation: none;
+  }
+}
