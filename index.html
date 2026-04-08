@@ -13,7 +13,7 @@
   <meta property="og:description"
     content="Sites que convertem. Design sob medida, performance e resultados reais para o seu negócio." />
   <meta property="og:type" content="website" />
-  <title>Dev Freelancer | Criação de Sites Personalizados</title>
+  <title>Dev Web</title>
   <link rel="icon" type="image/png" href="dev.png" />
   <link rel="apple-touch-icon" href="dev.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +30,7 @@
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#home" class="nav-logo">
-        <span class="logo-bracket">&lt;</span>Dev<span class="logo-red">/</span><span class="logo-bracket">&gt;</span>
+        <span class="logo-bracket">&lt;</span>DevWeb<span class="logo-red">/</span><span class="logo-bracket">&gt;</span>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#sobre" class="nav-link">Sobre</a></li>
@@ -626,7 +626,124 @@
     <span class="wf-tooltip">Falar no WhatsApp</span>
   </a>
 
+  <!-- ===== NOTIFICATION SYSTEM ===== -->
+
+  <!-- Botão Trigger: fixo no canto superior direito -->
+  <button
+    id="notif-trigger"
+    class="notif-trigger"
+    aria-label="Abrir painel de atualizações"
+    aria-expanded="false"
+    aria-controls="notif-drawer"
+  >
+    <!-- Ícone de sino (SVG inline limpo) -->
+    <svg
+      class="notif-bell-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.8"
+        d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"
+      />
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.8"
+        d="M13.73 21a2 2 0 0 1-3.46 0"
+      />
+    </svg>
+    <!-- Badge com contador de não lidas -->
+    <span
+      id="notif-badge"
+      class="notif-badge"
+      aria-label="notificações não lidas"
+      role="status"
+      aria-live="polite"
+    >0</span>
+  </button>
+
+  <!-- Overlay escuro atrás do Drawer -->
+  <div
+    id="notif-overlay"
+    class="notif-overlay"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Drawer lateral deslizante -->
+  <aside
+    id="notif-drawer"
+    class="notif-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Painel de atualizações"
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <!-- Cabeçalho do Drawer -->
+    <header class="notif-drawer-header">
+      <div class="notif-drawer-title-group">
+        <h2 class="notif-drawer-title">Atualizações</h2>
+        <span id="notif-count-label" class="notif-count-label" aria-live="polite"></span>
+      </div>
+      <button
+        id="notif-close"
+        class="notif-close-btn"
+        aria-label="Fechar painel de atualizações"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M18 6 6 18M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </header>
+
+    <!-- Corpo do Drawer com scroll interno -->
+    <div
+      id="notif-list"
+      class="notif-list"
+      role="list"
+      aria-label="Lista de notificações"
+    >
+      <!-- Cards injetados via JavaScript -->
+    </div>
+
+    <!-- Rodapé do Drawer -->
+    <footer class="notif-drawer-footer">
+      <button
+        id="notif-mark-all"
+        class="notif-mark-all-btn"
+        aria-label="Marcar todas as notificações como lidas"
+      >
+        Marcar todas como lidas
+      </button>
+    </footer>
+  </aside>
+
   <script src="script.js"></script>
+  <script src="notifications.js"></script>
 </body>
 
 </html>
