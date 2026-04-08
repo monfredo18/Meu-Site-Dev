@@ -22,45 +22,10 @@
 const NOTIFICACOES_DATA = [
   {
     id: "notif-001",
-    titulo: "Novo projeto disponível",
-    descricao: "Um cliente enviou uma solicitação de orçamento para uma landing page de alto impacto. Verifique os detalhes.",
+    titulo: "Landing Page com 10% de desconto",
+    descricao: "Durante está semana teremos um desconto especial para novos clientes que fizerem uma Landing Page. Aproveite!",
     dataISO: "2026-04-07T10:30:00Z",
-    status: "novo"
-  },
-  {
-    id: "notif-002",
-    titulo: "Portfólio atualizado",
-    descricao: "O projeto 'Dashboard Financeiro' foi adicionado ao seu portfólio com as métricas de desempenho atualizadas.",
-    dataISO: "2026-04-06T18:15:00Z",
-    status: "atualizado"
-  },
-  {
-    id: "notif-003",
-    titulo: "Prazo se aproximando",
-    descricao: "O site institucional da Academia Premium tem entrega prevista para amanhã. Confirme se tudo está pronto para deploy.",
-    dataISO: "2026-04-06T09:00:00Z",
-    status: "importante"
-  },
-  {
-    id: "notif-004",
-    titulo: "Avaliação recebida",
-    descricao: "Seu cliente deixou uma avaliação 5 estrelas: 'Entrega impecável, superou todas as expectativas!'",
-    dataISO: "2026-04-05T14:45:00Z",
-    status: "novo"
-  },
-  {
-    id: "notif-005",
-    titulo: "Tecnologia atualizada",
-    descricao: "A versão 3.0 do seu boilerplate de projetos foi atualizada com suporte a CSS Container Queries e View Transitions API.",
-    dataISO: "2026-04-04T11:00:00Z",
-    status: "atualizado"
-  },
-  {
-    id: "notif-006",
-    titulo: "Manutenção programada",
-    descricao: "O servidor de homologação passará por manutenção neste domingo das 02h às 06h. Planeje seus deploys adequadamente.",
-    dataISO: "2026-04-03T08:30:00Z",
-    status: "importante"
+    status: "evento"
   }
 ];
 
@@ -244,8 +209,8 @@ class NotificationSystem {
 
     // Mapa de labels legíveis por status
     const statusLabels = {
-      novo:       'Novo',
-      atualizado: 'Atualizado',
+      novidade:   'Novidade',
+      evento: 'Evento',
       importante: 'Importante'
     };
 
